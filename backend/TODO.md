@@ -1,0 +1,7 @@
+- [x] Update package.json to include mysql2 dependency
+- [x] Modify Server.js to connect to MySQL database
+- [x] Create database tables for users, cases, clients, invoices, accounts, messages
+- [x] Seed the database with initial dummy data
+- [x] Update API routes to query the database instead of in-memory arrays
+- [x] Test the backend server and ensure data persistence
+- [x] Verify frontend components fetch data correctly from updated backend

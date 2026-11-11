@@ -38,38 +38,38 @@ The system integrates an AI chatbot and speech recognition to make information a
 
 ## 📂 Project Structure
 
-- frontend/ – React frontend application
-- backend/ – Node.js and Express backend
+- `frontend/` – React frontend application
+- `backend/` – Node.js and Express backend
 
 ## ⚙️ Installation and Setup
 
 ### 1. Clone the Repository
-
+```bash
 git clone https://github.com/hhmadhu0-cmyk/LexFlow
 cd LexFlow
-
+```
 
 ### 2. Backend Setup
-
+```bash
 cd backend
 npm install
-
+```
 
 Configure your environment variables and database connection using your local MySQL setup.
 
 Start the backend:
-
+```bash
 node Server.js
-
+```
 
 ### 3. Frontend Setup
 
 Open another terminal:
-
+```bash
 cd frontend
 npm install
 npm start
-
+```
 
 Use the frontend URL displayed in your terminal to access the application.
 

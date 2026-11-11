@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Staff Dashboard API</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Test Staff Dashboard API Endpoints</h1>
+
+    <div class="test-section">
+        <h2>Test Staff Login</h2>
+        <button onclick="testStaffLogin('Lokesh', 'Lokesh 123')">Login as Lokesh</button>
+        <button onclick="testStaffLogin('Ravi', 'Ravi 123')">Login as Ravi</button>
+        <div id="login-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Client Filtering</h2>
+        <button onclick="testStaffClients('Lokesh')">Get Lokesh's Clients</button>
+        <button onclick="testStaffClients('Ravi')">Get Ravi's Clients</button>
+        <div id="clients-result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Case Filtering</h2>
+        <button onclick="testStaffCases('Lokesh')">Get Lokesh's Cases</button>
+        <button onclick="testStaffCases('Ravi')">Get Ravi's Cases</button>
+        <div id="cases-result"></div>
+    </div>
+
+    <script>
+        async function testStaffLogin(username, password) {
+            const resultDiv = document.getElementById('login-result');
+            try {
+                const response = await fetch('http://localhost:5000/login/staff', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre class="${data.success ? 'success' : 'error'}">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<pre class="error">Error: ${error.message}</pre>`;
+            }
+        }
+
+        async function testStaffClients(username) {
+            const resultDiv = document.getElementById('clients-result');
+            try {
+                const response = await fetch(`http://localhost:5000/clients/staff/${username}`);
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre class="success">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<pre class="error">Error: ${error.message}</pre>`;
+            }
+        }
+
+        async function testStaffCases(username) {
+            const resultDiv = document.getElementById('cases-result');
+            try {
+                const response = await fetch(`http://localhost:5000/cases/staff/${username}`);
+                const data = await response.json();
+                resultDiv.innerHTML = `<pre class="success">${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                resultDiv.innerHTML = `<pre class="error">Error: ${error.message}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>

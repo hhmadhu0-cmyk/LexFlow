@@ -78,3 +78,21 @@ To provide an efficient, organized, and user-friendly platform for legal case ma
 
 ## 👩‍💻 Developed As
 Academic Project – Computer Science and Engineering
+
+
+## 📸 Project Screenshots
+
+### Login Page
+![Login Page](screenshots/login-page.png)
+
+### Advocate Dashboard
+![Advocate Dashboard](screenshots/advocate-dashboard.png)
+
+### Case Management
+![Case Management](screenshots/case-management.png)
+
+### AI Chatbot
+![AI Chatbot](screenshots/ai-chatbot.png)
+
+### AI Court Recorder
+![Court Recorder](screenshots/court-recorder.png)
